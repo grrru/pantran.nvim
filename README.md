@@ -1,7 +1,7 @@
 <!-- panvimdoc-ignore-start -->
 # Pantran.nvim
 [![tests](https://github.com/potamides/pantran.nvim/actions/workflows/test.yml/badge.svg)](https://github.com/potamides/pantran.nvim/actions)
-[![versions](https://img.shields.io/badge/Neovim-v0.6.1%2B-informational?logo=neovim&logoColor=inactive)](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+[![versions](https://img.shields.io/badge/Neovim-v0.10.0%2B-informational?logo=neovim&logoColor=inactive)](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 <!-- panvimdoc-ignore-end -->
 With pantran.nvim, you can use your favorite machine translation engines
 without having to leave your favorite editor. It makes use of Neovim's
@@ -19,7 +19,7 @@ part, but don't be too surprised if you find a few bugs here and there. Use at
 your own risk!
 
 # Installation
-You need at least [Neovim v0.6.1](https://neovim.io/) and
+You need at least [Neovim v0.10.0](https://neovim.io/) and
 [curl v7.76.0](https://curl.se/) to be able to use this plugin. You can
 install it using your favorite plugin manager.
 
@@ -55,23 +55,13 @@ following recommended keybindings:
 <!-- panvimdoc-ignore-start -->
 <details open>
 <!-- panvimdoc-ignore-end -->
-<summary>Neovim 0.7+</summary>
+<summary>Neovim 0.10+</summary>
 
 ```lua
 local opts = {noremap = true, silent = true, expr = true}
 vim.keymap.set("n", "<leader>tr", pantran.motion_translate, opts)
 vim.keymap.set("n", "<leader>trr", function() return pantran.motion_translate() .. "_" end, opts)
 vim.keymap.set("x", "<leader>tr", pantran.motion_translate, opts)
-```
-
-</details>
-<details><summary>Neovim 0.6</summary>
-
-```lua
-local opts = {noremap = true, silent = true, expr = true}
-vim.api.nvim_set_keymap("n", "<leader>tr", [[luaeval("require('pantran').motion_translate()")]], opts)
-vim.api.nvim_set_keymap("n", "<leader>trr", [[luaeval("require('pantran').motion_translate() .. '_'")]], opts)
-vim.api.nvim_set_keymap("x", "<leader>tr", [[luaeval("require('pantran').motion_translate()")]], opts)
 ```
 
 </details>

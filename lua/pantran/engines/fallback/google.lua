@@ -157,7 +157,7 @@ function google.translate(text, source, target)
 
     if ok then
       if #translation == 1 then -- clients5.google.com
-        translation = vim.tbl_flatten(translation)
+        translation = vim.iter(translation):flatten(math.huge):totable()
         return {
           text = translation[1],
           detected = translation[2]
